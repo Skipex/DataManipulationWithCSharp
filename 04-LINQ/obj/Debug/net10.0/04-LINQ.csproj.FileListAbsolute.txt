@@ -1,0 +1,15 @@
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/bin/Debug/net10.0/04-LINQ
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/bin/Debug/net10.0/04-LINQ.deps.json
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/bin/Debug/net10.0/04-LINQ.runtimeconfig.json
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/bin/Debug/net10.0/04-LINQ.dll
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/bin/Debug/net10.0/04-LINQ.pdb
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/obj/Debug/net10.0/04-LINQ.GeneratedMSBuildEditorConfig.editorconfig
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/obj/Debug/net10.0/04-LINQ.AssemblyInfoInputs.cache
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/obj/Debug/net10.0/04-LINQ.AssemblyInfo.cs
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/obj/Debug/net10.0/04-LINQ.csproj.CoreCompileInputs.cache
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/obj/Debug/net10.0/04-LINQ.sourcelink.json
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/obj/Debug/net10.0/04-LINQ.dll
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/obj/Debug/net10.0/refint/04-LINQ.dll
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/obj/Debug/net10.0/04-LINQ.pdb
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/obj/Debug/net10.0/04-LINQ.genruntimeconfig.cache
+/home/coelho/dev/dotnet/DataManipulation/04-LINQ/obj/Debug/net10.0/ref/04-LINQ.dll
