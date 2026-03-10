@@ -6,9 +6,11 @@ using var stream = new StreamReader(arquivo);
 var musicasColdplay = 
         ObterMusicas(stream) // 1. Obter os dados da fonte (arquivo)
         //.FiltrarPor(FiltrarPorMetalica) // 2. Filtrar os dados (artista)
-        .FiltrarPor( m => m.Artista == "Metallica")
+        //.FiltrarPor( m => m.Artista == "Metallica")
+        .Where( m => m.Artista == "Metallica")
         //.FiltrarPor(FiltrarPorDuracao) // 3. Filtrar os dados (duração)
-        .FiltrarPor( m => m.Duracao >= 400);
+        //.FiltrarPor( m => m.Duracao >= 400);
+        .Where( m => m.Duracao >= 400);
 
 
 ExibirMusicas(musicasColdplay);
@@ -51,10 +53,10 @@ IEnumerable<Musica> ObterMusicas(StreamReader stream)
 
 static class MusicasExtensions
 {
-    public static IEnumerable<Musica> FiltrarPor(this IEnumerable<Musica> musicas, Func<Musica, bool> condicao)
+    public static IEnumerable<T> FiltrarPor<T>(this IEnumerable<T> colecao, Func<T, bool> condicao)
     {
-        foreach (var musica in musicas)
-            if (condicao(musica)) yield return musica;
+        foreach (var elemento in colecao)
+            if (condicao(elemento)) yield return elemento;
     }
 }
 
