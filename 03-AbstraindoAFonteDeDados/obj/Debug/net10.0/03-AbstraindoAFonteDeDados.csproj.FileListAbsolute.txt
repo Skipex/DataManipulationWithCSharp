@@ -1,0 +1,15 @@
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/bin/Debug/net10.0/03-AbstraindoAFonteDeDados
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/bin/Debug/net10.0/03-AbstraindoAFonteDeDados.deps.json
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/bin/Debug/net10.0/03-AbstraindoAFonteDeDados.runtimeconfig.json
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/bin/Debug/net10.0/03-AbstraindoAFonteDeDados.dll
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/bin/Debug/net10.0/03-AbstraindoAFonteDeDados.pdb
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/obj/Debug/net10.0/03-AbstraindoAFonteDeDados.GeneratedMSBuildEditorConfig.editorconfig
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/obj/Debug/net10.0/03-AbstraindoAFonteDeDados.AssemblyInfoInputs.cache
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/obj/Debug/net10.0/03-AbstraindoAFonteDeDados.AssemblyInfo.cs
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/obj/Debug/net10.0/03-AbstraindoAFonteDeDados.csproj.CoreCompileInputs.cache
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/obj/Debug/net10.0/03-AbstraindoAFonteDeDados.sourcelink.json
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/obj/Debug/net10.0/03-AbstraindoAFonteDeDados.dll
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/obj/Debug/net10.0/refint/03-AbstraindoAFonteDeDados.dll
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/obj/Debug/net10.0/03-AbstraindoAFonteDeDados.pdb
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/obj/Debug/net10.0/03-AbstraindoAFonteDeDados.genruntimeconfig.cache
+/home/coelho/dev/dotnet/DataManipulation/03-AbstraindoAFonteDeDados/obj/Debug/net10.0/ref/03-AbstraindoAFonteDeDados.dll
