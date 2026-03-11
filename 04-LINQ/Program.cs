@@ -2,7 +2,23 @@
 using var arquivo = new FileStream("musicas.csv", FileMode.Open, FileAccess.Read);
 using var stream = new StreamReader(arquivo);
 
-EstatisticasDeMusicas(stream);
+
+
+
+void OperacoesDeAgrupamento(StreamReader stream)
+{
+    var artistas = ObterMusicas(stream)
+                       .GroupBy(m => m.Artista);
+
+    foreach (var artista in artistas.Take(5))
+    {
+        System.Console.WriteLine($"\nMúsicas de {artista.Key}:\n");
+        foreach (var musica in artista)
+        {
+            System.Console.WriteLine($"\t - {musica.Titulo} ({musica.Duracao} segundos)");
+        }
+    }
+}
 
 void EstatisticasDeMusicas(StreamReader stream) // Operações de agregação
 {
