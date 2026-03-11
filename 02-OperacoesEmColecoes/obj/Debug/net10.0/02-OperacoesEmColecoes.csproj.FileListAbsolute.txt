@@ -12,3 +12,4 @@
 /home/coelho/dev/dotnet/DataManipulation/02-OperacoesEmColecoes/obj/Debug/net10.0/02-OperacoesEmColecoes.pdb
 /home/coelho/dev/dotnet/DataManipulation/02-OperacoesEmColecoes/obj/Debug/net10.0/02-OperacoesEmColecoes.genruntimeconfig.cache
 /home/coelho/dev/dotnet/DataManipulation/02-OperacoesEmColecoes/obj/Debug/net10.0/ref/02-OperacoesEmColecoes.dll
+/home/coelho/dev/dotnet/DataManipulation/02-OperacoesEmColecoes/obj/Debug/net10.0/02-OperacoesEmColecoes.sourcelink.json
