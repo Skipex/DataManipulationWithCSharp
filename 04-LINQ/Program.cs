@@ -1,26 +1,101 @@
-﻿
+﻿/*
+    Seja um arquivo com músicas em formato CSV (Comma Separated Values). 
+
+    Implemente as funções abaixo:
+    //     [x] Leia-o como uma coleção de músicas
+    //     [x] Filtre a coleção por artista (por ex. Coldplay, Metallica, AC/DC)
+    //     [x] Filtre a coleção por duração (por ex. maiores que 5 minutos)
+    //     [x] Ordene a coleção por artista
+    //     [x] Ordene a coleção por artista e em seguida por músicas com duração crescente
+    //     [x] Recupere as 10 músicas mais longas
+    //     [x] Crie uma coleção de artistas
+    //     [x] Crie uma coleção de gêneros
+    //     [x] Informe a duração média das músicas da coleção
+    //     [x] Informe a duração total das músicas da coleção
+    //     [x] Crie uma coleção de artistas e suas músicas
+    //     [x] Informe qual artista tem mais músicas na coleção
+    //     [x] Filtre a coleção por gênero (por ex. rock)
+ 
+*/
+
+/*
+ 
+  Fluxo Padrão: Estágio 1 (Origem Dados) > Estágio 2 > ... > Estágio N
+
+  LINQ - Categorias de operações para manipulação de coleções 
+  ========================================================================================
+  | Filtro (+)      | coleção c/ tam menor/igual atendendo condição | Where, Distinct    |
+  | Projeção (+)    | coleção transformada, do mesmo tipo ou não    | Select, SelectMany |
+  | Ordenação (*)   | coleção ordenada pela expressão lambda        | OrderBy, ThenBy    |
+  | Agregação (*)   | valor único a partir de operação de acúmulo   | Sum, Min, Max      |
+  | Agrupamento (+) | coleção de grupos onde a chave é o argumento  | GroupBy            |
+  | Elementos (*)   | elemento único T a partir do argumento        | First, Last, MinBy |
+  | Existência (*)  | booleano a partir da operação e argumento     | All, Any, Contains |
+  | Conversão (*)   | coleção em outra estrutura                    | ToList, ToArray    |
+  ========================================================================================
+
+    + operações avaliadas sob demanda (yield)
+    * operações avaliadas imediatamente
+*/
+
+
+
 using var arquivo = new FileStream("musicas.csv", FileMode.Open, FileAccess.Read);
 using var stream = new StreamReader(arquivo);
 
-var artistaComMaiorQuantidadeDeMusicas = ObterMusicas(stream)
-                                            .GroupBy(m => m.Artista)
-                                            .Select(g => new { Artista = g.Key, TotalMusicas = g.Count(), Musicas = g })
-                                            .MaxBy(g => g.TotalMusicas);
-if(artistaComMaiorQuantidadeDeMusicas is not null)
-{
-    System.Console.WriteLine($"O artista com maior quantidade de músicas é: {artistaComMaiorQuantidadeDeMusicas.Artista} com {artistaComMaiorQuantidadeDeMusicas.TotalMusicas} músicas");
 
-    if(artistaComMaiorQuantidadeDeMusicas.Musicas.Count() > 0)
+
+void OperacoesDeVerificacaoDeExistencia(StreamReader stream)
+{
+    var musicas = ObterMusicas(stream).ToList();
+
+    var artistas = musicas
+                    .GroupBy(m => m.Artista)
+                    .Where(g => g.Any(m => m.Duracao >= 480));
+
+    foreach (var artista in artistas.Take(1))
     {
-        System.Console.WriteLine($"As músicas do {artistaComMaiorQuantidadeDeMusicas.Artista} são:");
+        System.Console.WriteLine($"O artista {artista.Key} tem pelo menos uma música com 480 segundos");
         int i = 0;
-        foreach (var musica in artistaComMaiorQuantidadeDeMusicas.Musicas.OrderBy(m => m.Titulo))
+        foreach (var musica in artista.OrderBy(m => m.Duracao))
+            System.Console.WriteLine($"\t {++i} - {musica.Titulo} ({musica.Duracao} segundos)");
+    
+    }
+
+    var reggae = musicas
+                    .GroupBy(m => m.Artista)
+                    .Where(g => g.Any(m => m.Generos.Contains("Reggae")));
+    if(reggae is not null)
+    {
+        System.Console.WriteLine("\nArtistas que possuem pelo menos uma música do gênero Reggae:");
+        foreach (var artista in reggae)
         {
-            System.Console.WriteLine($"\t {++i} - {musica.Titulo}");
+            System.Console.WriteLine($"\t - {artista.Key}");
+        }    
+    }
+    
+}
+
+
+void ArtistaComMaiorQuantidadeDeMusicas(StreamReader stream)
+{
+    var artistaComMaiorQuantidadeDeMusicas = ObterMusicas(stream)
+                                                .GroupBy(m => m.Artista)
+                                                .Select(g => new { Artista = g.Key, TotalMusicas = g.Count(), Musicas = g })
+                                                .MaxBy(g => g.TotalMusicas);
+    if(artistaComMaiorQuantidadeDeMusicas is not null)
+    {
+        System.Console.WriteLine($"O artista com maior quantidade de músicas é: {artistaComMaiorQuantidadeDeMusicas.Artista} com {artistaComMaiorQuantidadeDeMusicas.TotalMusicas} músicas");
+
+        if(artistaComMaiorQuantidadeDeMusicas.Musicas.Count() > 0)
+        {
+            System.Console.WriteLine($"As músicas do {artistaComMaiorQuantidadeDeMusicas.Artista} são:");
+            int i = 0;
+            foreach (var musica in artistaComMaiorQuantidadeDeMusicas.Musicas.OrderBy(m => m.Titulo))
+                System.Console.WriteLine($"\t {++i} - {musica.Titulo}");
         }
     }
-}
-    
+}    
 
 void OperacoesDeObtencaoDeElementos(StreamReader stream)
 {
