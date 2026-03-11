@@ -2,7 +2,36 @@
 using var arquivo = new FileStream("musicas.csv", FileMode.Open, FileAccess.Read);
 using var stream = new StreamReader(arquivo);
 
+var artistaComMaiorQuantidadeDeMusicas = ObterMusicas(stream)
+                                            .GroupBy(m => m.Artista)
+                                            .Select(g => new { Artista = g.Key, TotalMusicas = g.Count(), Musicas = g })
+                                            .MaxBy(g => g.TotalMusicas);
+if(artistaComMaiorQuantidadeDeMusicas is not null)
+{
+    System.Console.WriteLine($"O artista com maior quantidade de músicas é: {artistaComMaiorQuantidadeDeMusicas.Artista} com {artistaComMaiorQuantidadeDeMusicas.TotalMusicas} músicas");
 
+    if(artistaComMaiorQuantidadeDeMusicas.Musicas.Count() > 0)
+    {
+        System.Console.WriteLine($"As músicas do {artistaComMaiorQuantidadeDeMusicas.Artista} são:");
+        int i = 0;
+        foreach (var musica in artistaComMaiorQuantidadeDeMusicas.Musicas.OrderBy(m => m.Titulo))
+        {
+            System.Console.WriteLine($"\t {++i} - {musica.Titulo}");
+        }
+    }
+}
+    
+
+void OperacoesDeObtencaoDeElementos(StreamReader stream)
+{
+    var musica = ObterMusicas(stream).ToList();
+
+    var primeiraMusica = musica.First();
+    System.Console.WriteLine($"A primeira música é: {primeiraMusica.Titulo}");
+
+    var maiorDuracao = musica.MaxBy(m => m.Duracao);
+    System.Console.WriteLine($"A música com maior duração é: {maiorDuracao.Titulo} ({maiorDuracao.Duracao} segundos)");
+}
 
 
 void OperacoesDeAgrupamento(StreamReader stream)
