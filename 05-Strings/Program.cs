@@ -1,23 +1,48 @@
 ﻿using var arquivo = new FileStream("musicas.csv", FileMode.Open, FileAccess.Read);
 using var stream = new StreamReader(arquivo);
 
-//var musicas = ObterMusicas(stream)
-//                .Where(m => m.Titulo.StartsWith('T'))
-//                .Take(50);
-//ExibirMusicas(musicas);
+var musicas = ObterMusicas(stream)
+                .Where(m => m.Artista.Equals("CoLdPlAy", StringComparison.OrdinalIgnoreCase))
+                .Take(20);
+ExibirMusicasEmTabela(musicas);
 
-var musica = ObterMusicas(stream)
-                .Where(m => m.Titulo.StartsWith('T'))
-                .FirstOrDefault();
 
-if(musica is not null)
+
+void AlterandoTituloMusica()
 {
-    System.Console.WriteLine($"A música é: {musica.Titulo} - {musica.Artista}");
-    musica.Titulo = musica.Titulo.Replace("The ", "");
-    System.Console.WriteLine($"A música é: {musica.Titulo} - {musica.Artista}");
+    var musica = ObterMusicas(stream)
+                    .Where(m => m.Titulo.StartsWith('T'))
+                    .FirstOrDefault();
+
+    if(musica is not null)
+    {
+        System.Console.WriteLine($"A música é: {musica.Titulo} - {musica.Artista}");
+        musica.Titulo = musica.Titulo.Replace("The ", "");
+        System.Console.WriteLine($"A música é: {musica.Titulo} - {musica.Artista}");
+    }
 }
 
+void ExibirMusicasEmTabela(IEnumerable<Musica> musicas)
+{
+    System.Console.WriteLine("Exibindo a lista de músicas:");
 
+    var colunaTitulo = "Título".PadRight(40);
+    var colunaArtista = "Artista".PadRight(35);
+    var colunaDuracao = "Duração".PadRight(10);
+    var colunaLancamento = "Lançada em".PadRight(12);
+
+    System.Console.WriteLine($"{colunaTitulo} | {colunaArtista} | {colunaDuracao} | {colunaLancamento}");
+    System.Console.WriteLine("".PadLeft(100, '='));
+
+
+    var contador = 0;
+    foreach (var musica in musicas)
+    {
+        var duracao = string.Format("{0, -11:F3}", musica.Duracao/60.0);
+        System.Console.WriteLine($"{musica.Titulo, -41} {musica.Artista, -36}  {duracao} {musica.Lancamento, -16: dd/MM/yyyy}");
+        
+    }
+}
 
 void ExibirMusicas(IEnumerable<Musica> musicas)
 {
@@ -80,4 +105,9 @@ class Musica
     public int Duracao { get; set; }
     public IEnumerable<string> Generos { get; set; }
     public DateTime Lancamento { get; set; }
+
+    public override string ToString()
+    {
+        return $"{Titulo} ({Artista}) - {Duracao}s [{Lancamento:dd/MM/yyyy}]";
+    }
 }
