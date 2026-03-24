@@ -1,0 +1,15 @@
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/bin/Debug/net10.0/05-Strings
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/bin/Debug/net10.0/05-Strings.deps.json
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/bin/Debug/net10.0/05-Strings.runtimeconfig.json
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/bin/Debug/net10.0/05-Strings.dll
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/bin/Debug/net10.0/05-Strings.pdb
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/obj/Debug/net10.0/05-Strings.GeneratedMSBuildEditorConfig.editorconfig
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/obj/Debug/net10.0/05-Strings.AssemblyInfoInputs.cache
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/obj/Debug/net10.0/05-Strings.AssemblyInfo.cs
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/obj/Debug/net10.0/05-Strings.csproj.CoreCompileInputs.cache
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/obj/Debug/net10.0/05-Strings.sourcelink.json
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/obj/Debug/net10.0/05-Strings.dll
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/obj/Debug/net10.0/refint/05-Strings.dll
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/obj/Debug/net10.0/05-Strings.pdb
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/obj/Debug/net10.0/05-Strings.genruntimeconfig.cache
+/home/coelho/dev/dotnet/DataManipulation/05-Strings/obj/Debug/net10.0/ref/05-Strings.dll
