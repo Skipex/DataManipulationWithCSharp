@@ -2,11 +2,33 @@
 using var stream = new StreamReader(arquivo);
 
 var musicas = ObterMusicas(stream)
-                .Where(m => m.Artista.Equals("CoLdPlAy", StringComparison.OrdinalIgnoreCase))
                 .Take(20);
 ExibirMusicasEmTabela(musicas);
 
+void ValidacaoDeStrings()
+{
+    var artista1 = "Coldplay"; // interning - somente quando usa string literal
+    var artista2 = "Coldplay";
+    var artista3 = new string("Coldplay"); // não faz interning pois não é uma string literal
+    var artista4 = "COLDPLAY"; // é uma string literal mas é diferente da 1 e 2
+    var artista5 = artista1.ToUpper(); // Vai gravar no HEAP criando uma nova referência
+    var artista6 = string.Intern(artista1.ToUpper()); // leva a referência da HEAP para a string pool
 
+    System.Console.WriteLine(artista1 == artista2); // True pois sobrescreve o método equals
+    System.Console.WriteLine(ReferenceEquals(artista1, artista2)); // True pois pega a mesma referência do pool de string
+    System.Console.WriteLine(ReferenceEquals(artista1, artista3)); // False - pois o artista3 não é uma string literal
+    System.Console.WriteLine(ReferenceEquals(artista4, artista6));
+}
+
+void ComparandoTitulo(StreamReader stream)
+{
+    var musicas = ObterMusicas(stream)
+                    .Where(m => m.Artista.Equals("CoLdPlAy", StringComparison.OrdinalIgnoreCase))
+                    .Take(20);
+
+    ExibirMusicasEmTabela(musicas);
+    
+}
 
 void AlterandoTituloMusica()
 {
@@ -65,15 +87,19 @@ IEnumerable<Musica> ObterMusicas(StreamReader stream)
     while (linha is not null)
     {
         var partes = linha.Split(';');
-        var musica = new Musica
+
+        if(partes.Length == 5)
         {
-            Titulo = partes[0],
-            Artista = partes[1],
-            Duracao = int.Parse(partes[2]),
-            Generos = partes[3].Split(',', StringSplitOptions.TrimEntries),
-            Lancamento = Convert.ToDateTime(partes[4])
-        };
-        yield return musica;
+            var musica = new Musica
+            {
+                Titulo = string.IsNullOrWhiteSpace(partes[0]) ? "Título não definido" : partes[0],
+                Artista = string.IsNullOrWhiteSpace(partes[1]) ? "Artista não definido" : partes[1],
+                Duracao = int.TryParse(partes[2], out int duracao) ? duracao : 0,
+                Generos = partes[3].Split(',', StringSplitOptions.TrimEntries),
+                Lancamento = DateTime.TryParse(partes[4], out var data) ? data : DateTime.Today
+            };
+            yield return musica;
+        }
         linha = stream.ReadLine();
     }
 }
