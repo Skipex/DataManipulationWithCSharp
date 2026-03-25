@@ -1,10 +1,23 @@
-﻿using var arquivo = new FileStream("musicas.csv", FileMode.Open, FileAccess.Read);
+﻿using System.Text.RegularExpressions;
+
+using var arquivo = new FileStream("musicas.csv", FileMode.Open, FileAccess.Read);
 using var stream = new StreamReader(arquivo);
 
+var linha = "The Broken Road;Rolling Stones;6:39;Rock, Blues Rock;13/09/1974";
+var match = Regex.Match(linha, @"\d:\d\d");
+if (match.Success)
+{
+    System.Console.WriteLine("Duração encontrada: " + match.Value);
+} else
+{
+    System.Console.WriteLine("Duração não encontrada.");
+}
+
+/*
 var musicas = ObterMusicas(stream)
                 .Take(20);
 ExibirMusicasEmTabela(musicas);
-
+*/
 void ExibirMusicasEmTabela(IEnumerable<Musica> musicas)
 {
     System.Console.WriteLine("Exibindo a lista de músicas:");

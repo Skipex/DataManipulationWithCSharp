@@ -1,0 +1,15 @@
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/bin/Debug/net10.0/06-ExpressoesRegulares
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/bin/Debug/net10.0/06-ExpressoesRegulares.deps.json
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/bin/Debug/net10.0/06-ExpressoesRegulares.runtimeconfig.json
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/bin/Debug/net10.0/06-ExpressoesRegulares.dll
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/bin/Debug/net10.0/06-ExpressoesRegulares.pdb
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/obj/Debug/net10.0/06-ExpressoesRegulares.GeneratedMSBuildEditorConfig.editorconfig
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/obj/Debug/net10.0/06-ExpressoesRegulares.AssemblyInfoInputs.cache
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/obj/Debug/net10.0/06-ExpressoesRegulares.AssemblyInfo.cs
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/obj/Debug/net10.0/06-ExpressoesRegulares.csproj.CoreCompileInputs.cache
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/obj/Debug/net10.0/06-ExpressoesRegulares.sourcelink.json
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/obj/Debug/net10.0/06-ExpressoesRegulares.dll
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/obj/Debug/net10.0/refint/06-ExpressoesRegulares.dll
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/obj/Debug/net10.0/06-ExpressoesRegulares.pdb
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/obj/Debug/net10.0/06-ExpressoesRegulares.genruntimeconfig.cache
+/home/coelho/dev/dotnet/DataManipulation/06-ExpressoesRegulares/obj/Debug/net10.0/ref/06-ExpressoesRegulares.dll
