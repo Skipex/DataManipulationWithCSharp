@@ -2,9 +2,86 @@
 using var arquivo = new FileStream("musicas.csv", FileMode.Open, FileAccess.Read);
 using var stream = new StreamReader(arquivo);
 
+/**
+    [x] encontrar artistas que contenham caracteres especiais
+    [x] encontrar títulos com duas palavras
+    [x] encontrar títulos que começam e terminam com a mesma palavra
+    [x] encontrar títulos com letras repetidas
+    [ ] encontrar títulos com números romanos
+*/
+
+/*
+var regex = new Regex(@"^\w+ \w+ \w+$");
+var musicas = ObterMusicas(stream)
+                .Where(m => regex.IsMatch(m.Titulo))
+                .Take(20);
+
+ExibirMusicasEmTabela(musicas);
+*/
+
+MusicasComNumerosRomanos(stream);
+
+void MusicasComNumerosRomanos(StreamReader stream)
+{
+    var regex = new Regex(@"\b[IVXLCDM]+\b");
+    var musicas = ObterMusicas(stream)
+                    .Where(m => regex.IsMatch(m.Titulo))
+                    .Take(20);
+
+    ExibirMusicasEmTabela(musicas);
+}
+
+void MusicasComLetrasRepetidas(StreamReader stream)
+{
+    var regex = new Regex(@"\w*(\w)\1{1,}\w");
+    var musicas = ObterMusicas(stream)
+                    .Where(m => regex.IsMatch(m.Titulo))
+                    .Take(20);
+
+    ExibirMusicasEmTabela(musicas);
+}
+
+void MusicasQueComecamETerminamComAMesmaPalavra(StreamReader stream)
+{
+    var regex = new Regex(@"^(\w+).*\1$");
+    var musicas = ObterMusicas(stream)
+                    .Where(m => regex.IsMatch(m.Titulo))
+                    .Take(20);
+
+    ExibirMusicasEmTabela(musicas);
+}
+
+
+void MusicasComDuasPalavras(StreamReader stream)
+{
+    var regex = new Regex(@"^\w+ \w+$");
+    var musicas = ObterMusicas(stream)
+                    .Where(m => regex.IsMatch(m.Titulo))
+                    .Take(20);
+
+    ExibirMusicasEmTabela(musicas);
+}
+
+
+void ArtistasComCaracteresEspeciais(StreamReader stream)
+{
+    var regex = new Regex(@"[^a-zA-Z0-9 ]");
+
+    var artistas = ObterMusicas(stream)
+                    .Where(m => regex.IsMatch(m.Artista))
+                    .Select(m => m.Artista)
+                    .Distinct()
+                    .OrderBy(a => a);
+
+    foreach (var artista in artistas) System.Console.WriteLine(artista);
+
+}
+
+/*
 var musicas = ObterMusicas(stream)
                 .Take(20);
 ExibirMusicasEmTabela(musicas);
+*/
 
 void ExibirMusicasEmTabela(IEnumerable<Musica> musicas)
 {
